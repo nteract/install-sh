@@ -1,14 +1,14 @@
 # nteract install shell endpoint
 
 This repository serves `https://sh.nteract.io`, a tiny shell bootstrap for the
-nteract installer (Linux x64 and macOS Apple silicon/Intel).
+nteract installer (Linux x64/ARM64 and macOS Apple silicon/Intel).
 
 The endpoint intentionally stays separate from the marketing site. It serves
 plain shell, not HTML, and it does not install agent-specific integrations.
 
-The bootstrap dynamically fetches the latest stable release's
-`install-linux-release` asset from GitHub releases. Falls back to the main
-branch version if the API call fails.
+The bootstrap requires `minisign` on PATH. It checks the latest stable
+installer’s SHA-256 against the release manifest signed by nteract’s updater key
+before running it.
 
 ## Local development
 
